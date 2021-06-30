@@ -15,5 +15,4 @@ if __name__ == "__main__":
     stack = convert_to_monostack(nums[::-1])
     print(stack)
         
-        
 
