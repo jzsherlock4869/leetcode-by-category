@@ -15,3 +15,13 @@
 [503. 下一个更大元素 II](./monostack/python_version/4.leetcode_503.py)
 
 [768. 最多能完成排序的块 II](./monostack/python_version/5.leetcode_768.py)
+
+
+#### 回溯法（backtracking）
+
+[template](./backtrack/python_version/0.template.py)
+
+[17. 电话号码的字母组合](./backtrack/python_version/1.leetcode_17.py)
+
+[22. 括号生成](./backtrack/python_version/2.leetcode_22.py)
+
