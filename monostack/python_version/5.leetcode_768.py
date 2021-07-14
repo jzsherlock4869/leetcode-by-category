@@ -46,4 +46,32 @@
 需要注意的是：这里的cur与stack.top比较并递归地pop了一堆stack中的元素后，还需要把原来的top放回去。
 原因在于：这个pop代表的是合并的过程，而stack元素代表的是合并后的最大值。由于进入push过程的条件就是cur < stack.top，
 因此合并后当前chunk的最大值还是原来的top。
+
+结果：
+执行用时：24 ms, 在所有 Python 提交中击败了43.90% 的用户
+内存消耗：12.9 MB, 在所有 Python 提交中击败了68.29% 的用户
 """
+
+class Solution(object):
+    def maxChunksToSorted(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: int
+        """
+        stack = []
+        n = len(arr)
+        for i in range(n):
+            if not stack or arr[i] > stack[-1]:
+                stack.append(arr[i])
+            else:
+                # stack not empty and cur <= stack.top
+                cur_max = stack[-1]
+                while stack and stack[-1] > arr[i]:
+                    stack.pop(-1)
+                stack.append(cur_max)
+                # 这里注意：append的是当前的最大值cur_max，而非在移动对比的cur。
+                # 只需要理解了这个向左对比pop的过程就是一个从右向左merge各个chunk的过程即不难理解。
+                # merge完成后，我们需要保留在stack中的仍只是当前的top，cur既然已经进入pop阶段，说明肯定不是某个chunk的max
+                # pop只是为了将cur也能符合规则地加入到最后一个chunk中。
+                
+        return len(stack)
