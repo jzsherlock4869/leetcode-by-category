@@ -17,3 +17,16 @@ def backtrack(cur_path, cur_arr):
         backtrack(new_path, new_arr)
         # 注意，这里的new_path不能直接修改掉cur_path，否则需要还原cur_path
         # 因为这里的for循环相当于对各个子节点各自尝试，他们是同层的，不应该相互影响。
+
+"""
+标准模板：
+def function(nums):
+    res = list()
+    # 一般直接在function内部定义backtrack
+    def backtrack(path, arr):
+        ...
+    # 调用一次backtrack，修改res
+    backtrack([], nums)
+    # 返回修改后的res
+    return res
+"""

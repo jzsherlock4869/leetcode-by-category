@@ -28,3 +28,14 @@
 [39. 组合总和](./backtrack/python_version/3.leetcode_39.py)
 
 [40. 组合总和 II](./backtrack/python_version/4.leetcode_40.py)
+
+[46. 全排列](./backtrack/python_version/5.leetcode_46.py)
+
+[47. 全排列 II](./backtrack/python_version/6.leetcode_47.py)
+
+[51. N 皇后](./backtrack/python_version/7.leetcode_51.py)
+
+[77. 组合](./backtrack/python_version/8.leetcode_77.py)
+
+[78. 子集](./backtrack/python_version/9.leetcode_78.py)
+
