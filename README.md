@@ -25,3 +25,6 @@
 
 [22. 括号生成](./backtrack/python_version/2.leetcode_22.py)
 
+[39. 组合总和](./backtrack/python_version/3.leetcode_39.py)
+
+[40. 组合总和 II](./backtrack/python_version/4.leetcode_40.py)
