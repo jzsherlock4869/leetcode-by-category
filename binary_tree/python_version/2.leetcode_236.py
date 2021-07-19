@@ -34,7 +34,44 @@
 
 ====================================================================
 题解：
-    
-
+    如果用返回null来表示在该节点为根的树中没有p或者q的话，那么可以设立如下规则：
+    - 如果当前node为空，即叶子节点的left和right，那么返回null
+    - 如果当前node等于p或者q，那么返回当前node
+    上面是边界条件，用于直接返回。下面考虑，如果对中间的一个节点，有了左右两子树的返回值，汇总逻辑如何？
+    - 如果左边右边都为null，说明该node下面的树中间没有p和q，LCA不在此处，所以直接返回null
+    - 如果左边为null，右边不为null，说明LCA在右边，直接返回right的结果即可；反之亦然
+    - 如果两边都不是null，说明p和q在左右两边各有一个，于是自己就是LCA，返回当前node
 
 """
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+# 执行用时：44 ms, 在所有 Python 提交中击败了98.24% 的用户
+# 内存消耗：24.8 MB, 在所有 Python 提交中击败了61.25% 的用户
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        if root is None:
+            return None
+        # 先做相等的判断非常重要，如果相等直接返回，可以保证p为q的祖先时，返回的是p而不是q。
+        if root == p or root == q:
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if not left and not right:
+            return None
+        if not left:
+            return right
+        if not right:
+            return left
+        return root

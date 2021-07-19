@@ -35,6 +35,34 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ================================================================
-
-
+题解：
+    递归：注意定义一个函数和一个res，用来保存traversal的路径。
+    其实还有两种解法：
+        Morris
+        迭代
 """
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if not root:
+            return []
+        res = list()
+        def in_traverse(node):
+            if node.left:
+                in_traverse(node.left)
+            res.append(node.val)
+            if node.right:
+                in_traverse(node.right)
+            return
+        in_traverse(root)
+        return res
