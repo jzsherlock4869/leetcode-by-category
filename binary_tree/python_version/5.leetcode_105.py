@@ -26,6 +26,10 @@ Output: [-1]
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ===============================================================================
+题解：
+    根据preorder表达式，取出第一个元素，即为根节点，然后再从inorder中找到这个节点，划分左右子树。
+    容易看出，划分后的结果具有与原问题相同的形式，因此可以递归操作。
+    注意！！！这里的递归过程没有对preorder分成左右子树，因为递归完成左子树后，preorder的所有左子树上的node都已经pop出去。
 
 
 """
@@ -55,5 +59,7 @@ class Solution(object):
             # python的list类型，slice中的idx超限是允许的，会返回一个[]。
             # (直接的index是不许超限的，有IndexError: list index out of range)
             root.left = self.buildTree(preorder, inorder[:idx])
+            # 这里的preorder不需要特殊的处理（比如对应inorder分成两份），
+            # 因为递归调用，上面的这句针对root的左子树的操作完成后，自然preorder只剩下右子树了。
             root.right = self.buildTree(preorder, inorder[idx+1:])
             return root

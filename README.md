@@ -36,7 +36,7 @@
 
 #### 二叉树（binary tree）
 
-| 题目                                                    | 解法                    | 关键点                                                       |
+| 题目                                                         | 解法                    | 关键点                                                       |
 | ------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------ |
 |                                                              |                         |                                                              |
 | [103. 二叉树的锯齿形层序遍历](./binary_tree/python_version/1.leetcode_103.py) | 层序遍历、双端队列      | 普通层序遍历基础上对不同层进行区分                           |
@@ -45,6 +45,16 @@
 | [199. 二叉树的右视图](./binary_tree/python_version/3.leetcode_199.py) | DFS（中右左）、层序遍历 | DFS时只保留本层第一个、层序遍历分层输出取最右。              |
 | [102. 二叉树的层序遍历](./binary_tree/python_version/4.leetcode_102.py) | 层序遍历分层输出        | 模板题。只需注意while que + for i in range(len(que))，其它显然。 |
 | [94. 二叉树的中序遍历](./binary_tree/python_version/7.leetcode_94.py) | 递归、迭代、Morris      | 模板题。                                                     |
+| [98. 验证二叉搜索树](./binary_tree/python_version/8.leetcode_98.py) | 递归、遍历              | 设计helper(node, min, max)函数，对每个node递归做范围限制。   |
+| [105. 从前序与中序遍历序列构造二叉树](./binary_tree/python_version/5.leetcode_105.py) | 递归                    | 前序找根节点，分割中序遍历结果。递归建树                     |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
+|                                                              |                         |                                                              |
 |                                                              |                         |                                                              |
 |                                                              |                         |                                                              |
 
