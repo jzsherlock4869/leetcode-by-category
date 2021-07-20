@@ -24,6 +24,26 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ====================================================================
-
+题解：
+    模板题，树的递归。
 
 """
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# 执行用时：28 ms, 在所有 Python 提交中击败了76.20% 的用户
+# 内存消耗：15.5 MB, 在所有 Python 提交中击败了85.37% 的用户
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1

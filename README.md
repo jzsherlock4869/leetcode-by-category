@@ -47,11 +47,11 @@
 | [94. 二叉树的中序遍历](./binary_tree/python_version/7.leetcode_94.py) | 递归、迭代、Morris      | 模板题。                                                     |
 | [98. 验证二叉搜索树](./binary_tree/python_version/8.leetcode_98.py) | 递归、遍历              | 设计helper(node, min, max)函数，对每个node递归做范围限制。   |
 | [105. 从前序与中序遍历序列构造二叉树](./binary_tree/python_version/5.leetcode_105.py) | 递归                    | 前序找根节点，分割中序遍历结果。递归建树                     |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
+| [124. 二叉树中的最大路径和](./binary_tree/python_version/6.leetcode_124.py) | 递归                    | path总有一个顶点，递归计算每个顶点为起点的路径，构造出path   |
+| [99. 恢复二叉搜索树](./binary_tree/python_version/9.leetcode_99.py) | 中序遍历                | 中序遍历，利用BST在中序遍历的顺序性，进行判断                |
+| [100. 相同的树](./binary_tree/python_version/10.leetcode_100.py) | 递归                    | check本层val、递归check左子树、递归check右子树               |
+| [101. 对称二叉树](./binary_tree/python_version/11.leetcode_101.py) | 递归                    | 设计helper(node1, node2)，内侧外侧分别递归                   |
+| [104. 二叉树的最大深度](./binary_tree/python_version/12.leetcode_104.py) | 递归                    | 模板题。                                                     |
 |                                                              |                         |                                                              |
 |                                                              |                         |                                                              |
 |                                                              |                         |                                                              |
