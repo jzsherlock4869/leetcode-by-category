@@ -29,3 +29,31 @@ Output: [-1]
 
 
 """
+
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+# 执行用时：88 ms, 在所有 Python 提交中击败了72.19% 的用户
+# 内存消耗：50.6 MB, 在所有 Python 提交中击败了67.60% 的用户
+
+class Solution(object):
+    def buildTree(self, preorder, inorder):
+        """
+        :type preorder: List[int]
+        :type inorder: List[int]
+        :rtype: TreeNode
+        """
+        # 如果为空，直接返回None，对于叶子节点也符合下面的规则
+        if inorder:
+            idx = inorder.index(preorder.pop(0))
+            root = TreeNode(inorder[idx])
+            # python的list类型，slice中的idx超限是允许的，会返回一个[]。
+            # (直接的index是不许超限的，有IndexError: list index out of range)
+            root.left = self.buildTree(preorder, inorder[:idx])
+            root.right = self.buildTree(preorder, inorder[idx+1:])
+            return root
