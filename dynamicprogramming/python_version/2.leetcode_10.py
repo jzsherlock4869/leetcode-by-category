@@ -77,10 +77,13 @@ class Solution(object):
             if self.p[j-1] == '.':
                 return True 
             return self.s[i-1] == self.p[j-1]
+        # 注意！初始化为 (m+1) x (n+1) 的全False矩阵
         dp = [[False for _ in range(n+1)] for _ in range(m+1)]
+        # 空串和空串可以匹配
         dp[0][0] = True
+        # 注意 j 需要从 1 开始遍历，因为j=0的必然是False（空串作为模式串，任何s都无法匹配）
         for i in range(m + 1):
-            for j in range(n + 1):
+            for j in range(1, n + 1):
                 if p[j - 1] != "*":
                     if matcher(i, j):
                         dp[i][j] = dp[i - 1][j - 1]
