@@ -43,6 +43,50 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 =============================================================================
+题解：
+    容易想到，dp[i][j]表示s[:i+1]与p[:j+1]的匹配情况（index加1是为了给s和p首部各加一个空格，便于初始化），
+    本题的主要难点在于构造递归公式：
+    首先总体分为两大类情况：
+    1. 没有 star（p[j] != '*'）：
+        - 如果s[i] == p[j]，即当前匹配，那么结果递归地取决于之前的dp[i-1][j-1]
+        - 如果s[i] != p[j]，即当前不匹配，那么直接返回False
+    2. 有 star（p[j] == '*'）：
+        2.1 任何情况下，star和前面的char匹配 0 次：
+            - dp[i][j] = dp[i][j-2] # 相当于直接删除了pattern中的 char + star的组合
+        2.2 当 s[i] == p[j-1] 时，star和前面的char还可以匹配 1到多次：
+            - dp[i][j] = dp[i-1][j] # 既然允许匹配多次，匹配掉s中的一个s[i]不影响pattern，还是p[:j+1]
+    根据上述递推关系，填充dp矩阵即可。
 
+    注意！将s和p都在首端加一个空字符，则初始化dp[0][0] = True，其他的dp[0][j]或者dp[i][0]都是False
 
 """
+
+
+class Solution(object):
+    def isMatch(self, s, p):
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        m, n = len(s), len(p)
+        self.s, self.p = s, p
+        def matcher(i, j):
+            if i == 0:
+                return False
+            if self.p[j-1] == '.':
+                return True 
+            return self.s[i-1] == self.p[j-1]
+        dp = [[False for _ in range(n+1)] for _ in range(m+1)]
+        dp[0][0] = True
+        for i in range(m + 1):
+            for j in range(n + 1):
+                if p[j - 1] != "*":
+                    if matcher(i, j):
+                        dp[i][j] = dp[i - 1][j - 1]
+                else:
+                    dp[i][j] = dp[i][j - 2]
+                    if matcher(i, j - 1):
+                        dp[i][j] = dp[i][j - 2] or dp[i - 1][j]
+        return dp[m][n]
+
