@@ -38,7 +38,7 @@
 
 | 题目                                                         | 解法                    | 关键点                                                       |
 | ------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------ |
-|                                                              |                         |                                                              |
+| [template](./binary_tree/python_version/0.template.py)       | 二叉树基本操作          | template                                                     |
 | [103. 二叉树的锯齿形层序遍历](./binary_tree/python_version/1.leetcode_103.py) | 层序遍历、双端队列      | 普通层序遍历基础上对不同层进行区分                           |
 | [235. 二叉搜索树的最近公共祖先](./binary_tree/python_version/17.leetcode_235.py) | 二叉查找+返回规则       | BST的特性，分裂点在node.val与p和q不同大于或小于的位置。      |
 | [236. 二叉树的最近公共祖先](./binary_tree/python_version/2.leetcode_236.py) | 递归                    | 边界条件（node.val==p or q），本层逻辑：右null返回左（左null同理）；同时null返回null；同时非null返回自身。 |
@@ -52,11 +52,14 @@
 | [100. 相同的树](./binary_tree/python_version/10.leetcode_100.py) | 递归                    | check本层val、递归check左子树、递归check右子树               |
 | [101. 对称二叉树](./binary_tree/python_version/11.leetcode_101.py) | 递归                    | 设计helper(node1, node2)，内侧外侧分别递归                   |
 | [104. 二叉树的最大深度](./binary_tree/python_version/12.leetcode_104.py) | 递归                    | 模板题。                                                     |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
-|                                                              |                         |                                                              |
+| [110. 平衡二叉树](./binary_tree/python_version/13.leetcode_110.py) | 递归                    | 借助depth函数，check本层的高度差 and 左子树平衡 and 右子树平衡 |
+| [111. 二叉树的最小深度](./binary_tree/python_version/14.leetcode_111.py) | 递归                    | 当node无左子树或者无右子树时，min depth取决于另一边（有子树的部分） |
+| [112. 路径总和](./binary_tree/python_version/15.leetcode_112.py) | 递归                    | 当node为叶子，路径满足条件时，返回True并退出，否则False，递归左右子树 |
+| [113. 路径总和 II](./binary_tree/python_version/16.leetcode_113.py) | 递归（回溯）            | 维护一个res列表，每个符合的path加入res。dfs步骤：path.push(val) -> recursive dfs -> path.pop(val) |
+
+
+
+#### 动态规划（Dynamic Programming）
 
 
 

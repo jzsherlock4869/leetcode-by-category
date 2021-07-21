@@ -58,3 +58,28 @@ class Solution(object):
         if not abs(depth(root.left) - depth(root.right)) <= 1:
             return False
         return self.isBalanced(root.left) and self.isBalanced(root.right)
+
+
+# 执行用时：32 ms, 在所有 Python 提交中击败了94.58% 的用户
+# 内存消耗：18.3 MB, 在所有 Python 提交中击败了17.72% 的用户
+class Solution(object):
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        def check_depth(node):
+            if not node:
+                return 0
+            ck_left = check_depth(node.left)
+            ck_right = check_depth(node.right)
+            # 子树已经不平衡，不需要计算深度，直接返回-1
+            if ck_left == -1 or ck_right == -1:
+                return -1
+            # 本层逻辑：如果子树平衡，但是两子树深度差大于1，该node也不平衡
+            if abs(ck_right - ck_left) > 1:
+                return -1
+            # 如果子树和本节点都平衡，返回实际的深度
+            return max(ck_left, ck_right) + 1
+        balance = True if check_depth(root) >= 0 else False
+        return balance
