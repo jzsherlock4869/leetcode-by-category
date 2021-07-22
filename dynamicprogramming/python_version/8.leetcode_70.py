@@ -26,5 +26,27 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ===========================================================
+题解：
+    一般作为动态规划的例题，斐波那契数列的递推方式
+    dp[i] = dp[i-1] + dp[i-2]
 
 """
+
+# 执行用时：12 ms, 在所有 Python 提交中击败了92.79% 的用户
+# 内存消耗：12.8 MB, 在所有 Python 提交中击败了95.26% 的用户
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 1:
+            return 1
+        if n == 2:
+            return 2
+        fst, scd = 1, 2
+        for i in range(2, n):
+            tmp = fst
+            fst = scd
+            scd = tmp + scd
+        return scd
