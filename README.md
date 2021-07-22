@@ -61,22 +61,22 @@
 
 #### 动态规划（Dynamic Programming）
 
-| 题目                                                        | 解法                 | 关键点                                                       |
-| ----------------------------------------------------------- | -------------------- | ------------------------------------------------------------ |
-| template                                                    | 动态规划             | template                                                     |
-| [5. 最长回文子串](./dynamicprogramming/1.leetcode_5.py)     | 动态规划、中心点扩展 | 根据s[i...j]的起止位置建立dp矩阵；只有1/2/3个元素的base case；填充顺序。 |
-| [10. 正则表达式匹配](./dynamicprogramming/2.leetcode_10.py) | 动态规划             | 当无star时，简单递归；有star时分类讨论（匹配0次；匹配多次）  |
-| [32. 最长有效括号](./dynamicprogramming/4.leetcode_32.py)   | 动态规划             | 考察当前位置的上一个，如果“(”直接匹配，如果“)”找到合法括号前面的，看是否是“(”。 |
-| [44. 通配符匹配](./dynamicprogramming/6.leetcode_44.py)     | 动态规划             | 如果match，dp(i, j) = dp(i-1, j-1)；否则如果有star，dp(i, j) = dp(i-1, j) or dp(i, j-1) |
-| [53. 最大子序和](./dynamicprogramming/7.leetcode_53.py)     | 动态规划             | 动态规划例题 dp(i) = max(dp(i-1) + nums[i], nums[i])，即前面的正向加上，负向舍弃。 |
-| [70. 爬楼梯](./dynamicprogramming/8.leetcode_70.py)         | 动态规划             | 例题，斐波那契的递推关系                                     |
-| [72. 编辑距离](./dynamicprogramming/9.leetcode_72.py)       | 动态规划             | 考虑增、替、删、无四种可能的操作，构造递推关系。             |
-|                                                             |                      |                                                              |
-|                                                             |                      |                                                              |
-|                                                             |                      |                                                              |
-|                                                             |                      |                                                              |
-|                                                             |                      |                                                              |
-|                                                             |                      |                                                              |
+| 题目                                                         | 解法                 | 关键点                                                       |
+| ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ |
+| template                                                     | 动态规划             | template                                                     |
+| [5. 最长回文子串](./dynamicprogramming/1.leetcode_5.py)      | 动态规划、中心点扩展 | 根据s[i...j]的起止位置建立dp矩阵；只有1/2/3个元素的base case；填充顺序。 |
+| [10. 正则表达式匹配](./dynamicprogramming/2.leetcode_10.py)  | 动态规划             | 当无star时，简单递归；有star时分类讨论（匹配0次；匹配多次）  |
+| [32. 最长有效括号](./dynamicprogramming/4.leetcode_32.py)    | 动态规划             | 考察当前位置的上一个，如果“(”直接匹配，如果“)”找到合法括号前面的，看是否是“(”。 |
+| [44. 通配符匹配](./dynamicprogramming/6.leetcode_44.py)      | 动态规划             | 如果match，dp(i, j) = dp(i-1, j-1)；否则如果有star，dp(i, j) = dp(i-1, j) or dp(i, j-1) |
+| [53. 最大子序和](./dynamicprogramming/7.leetcode_53.py)      | 动态规划             | 动态规划例题 dp(i) = max(dp(i-1) + nums[i], nums[i])，即前面的正向加上，负向舍弃。 |
+| [70. 爬楼梯](./dynamicprogramming/8.leetcode_70.py)          | 动态规划             | 例题，斐波那契的递推关系                                     |
+| [72. 编辑距离](./dynamicprogramming/9.leetcode_72.py)        | 动态规划             | 考虑增、替、删、无四种可能的操作，构造递推关系。             |
+| [121. 买卖股票的最佳时机](./dynamicprogramming/11.leetcode_121.py) | 遍历更新、动态规划   | 如果i时刻卖出，最大差价为prices(i) - min (prices(j))，j <= i。最后取所有卖出时刻最大差价的最大值。 |
+| [122. 买卖股票的最佳时机 II](./dynamicprogramming/12.leetcode_122.py) | 动态规划             | 每个时刻两种状态：持有/不持有股票。递推即可。                |
+|                                                              |                      |                                                              |
+|                                                              |                      |                                                              |
+|                                                              |                      |                                                              |
+|                                                              |                      |                                                              |
 
 
 

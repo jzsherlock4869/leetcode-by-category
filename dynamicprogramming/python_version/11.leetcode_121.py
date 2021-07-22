@@ -26,6 +26,32 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ===========================================================================
-
+题解：
+    方案 1：
+    假设我们要在i时刻卖出股票，那么买入的价格为min(prices[...i]])时所赚的差值是最多的（注意：这里固定了卖出时刻）
+    最后在所有卖出时刻中取最大值即可。
+    如果写成公式的话，则：best_earn = max {i} (prices[i] - min {j <= i} (prices[j]))
 
 """
+
+# 方案 1
+# 执行用时：100 ms, 在所有 Python 提交中击败了97.67% 的用户
+# 内存消耗：19.9 MB, 在所有 Python 提交中击败了34.63% 的用户
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        buy_mini = prices[0]
+        best_earn = 0
+        n = len(prices)
+        for i in range(1, n):
+            # 遍历到的位置表示：在当前时刻 卖出 股票， prices[i] - buy_mini 为此时的最大收益
+            # 每次遍历更新最小值（当前时间i之前（含）的最小值）
+            if prices[i] < buy_mini:
+                buy_mini = prices[i]
+            # 更新最大收益
+            if prices[i] - buy_mini > best_earn:
+                best_earn = prices[i] - buy_mini
+        return best_earn

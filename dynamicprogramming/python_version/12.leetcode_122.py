@@ -32,6 +32,48 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ===============================================================================
-
+题解：
+     构造dp矩阵，矩阵大小为 n x 2，dp[i][0] 表示第i天结束后持有股票时的收益；dp[i][1] 表示第i天结束不持有股票的收益。
+     注意！这里的持有表示当前买入，或者之前就已经持有。另外，收益指的是当前手里的钱（可以是负数，买入股票相当于负收益）
+     于是可以写出递推关系：
+          dp[i][0] = max(dp[i-1][0], dp[i-1][1] - prices[i])  # 之前持有；之前没有，在i时刻新买入
+          dp[i][1] = max(dp[i-1][1], dp[i-1][0] + prices[i])  # 之前不持有；之前持有，但是在i时刻卖掉了
+     最后返回的结果是：dp[n-1][1]，因为最后肯定是不持有股票更有利于收益。
 
 """
+
+# 执行用时：36 ms, 在所有 Python 提交中击败了14.15% 的用户
+# 内存消耗：17.4 MB, 在所有 Python 提交中击败了5.12% 的用户
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        n = len(prices)
+        dp = [[0 for _ in range(2)] for _ in range(n)]
+        # 0 不持有；1 持有
+        dp[0][1] = - prices[0]
+        for i in range(1, n):
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
+        return dp[n - 1][0]
+
+
+# 递推只和前面的一个有关，因此不需要真实开辟dp数组，只用滑动数组即可
+# 执行用时：24 ms, 在所有 Python 提交中击败了68.04% 的用户
+# 内存消耗：13.8 MB, 在所有 Python 提交中击败了60.82% 的用户
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        n = len(prices)
+        dp0, dp1 = 0, - prices[0]
+        # 0 不持有；1 持有
+        for i in range(1, n):
+            dp0_ = max(dp0, dp1 + prices[i])
+            dp1_ = max(dp1, dp0 - prices[i])
+            dp0, dp1 = dp0_, dp1_
+        return dp0
