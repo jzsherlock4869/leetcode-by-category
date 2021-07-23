@@ -71,8 +71,12 @@
 | [53. 最大子序和](./dynamicprogramming/7.leetcode_53.py)      | 动态规划             | 动态规划例题 dp(i) = max(dp(i-1) + nums[i], nums[i])，即前面的正向加上，负向舍弃。 |
 | [70. 爬楼梯](./dynamicprogramming/8.leetcode_70.py)          | 动态规划             | 例题，斐波那契的递推关系                                     |
 | [72. 编辑距离](./dynamicprogramming/9.leetcode_72.py)        | 动态规划             | 考虑增、替、删、无四种可能的操作，构造递推关系。             |
-| [121. 买卖股票的最佳时机](./dynamicprogramming/11.leetcode_121.py) | 遍历更新、动态规划   | 如果i时刻卖出，最大差价为prices(i) - min (prices(j))，j <= i。最后取所有卖出时刻最大差价的最大值。 |
-| [122. 买卖股票的最佳时机 II](./dynamicprogramming/12.leetcode_122.py) | 动态规划             | 每个时刻两种状态：持有/不持有股票。递推即可。                |
+| [121. 买卖股票的最佳时机](./dynamicprogramming/11.leetcode_121.py) | 遍历更新、动态规划   | 【单次买卖】如果i时刻卖出，最大差价为prices(i) - min (prices(j))，j <= i。最后取所有卖出时刻最大差价的最大值。 |
+| [122. 买卖股票的最佳时机 II](./dynamicprogramming/12.leetcode_122.py) | 动态规划             | 【多次买卖】每个时刻两种状态：持有/不持有股票。递推即可。    |
+| [123. 买卖股票的最佳时机 III](./dynamicprogramming/13.leetcode_123.py) | 动态规划             | 【两次买卖】dp为n x 4的矩阵，4列分别表示当前状态：买一次，买卖一次，买卖一次又买一次，买卖两次。建立递推关系 |
+| [221. 最大正方形](./dynamicprogramming/17.leetcode_221.py)   | 动态规划             | dp(i, j) = min(dp(i-1, j), dp(i, j-1), dp(i-1, j-1))         |
+| [139. 单词拆分](./dynamicprogramming/14.leetcode_139.py)     | 动态规划             | 考虑dp[i]表示末尾为s[i]的单词，向前查找，如果有一个单词s(j...i)符合，那么考察dp[j-1]的True or False，否则dp[i] = False。返回的结果为dp[-1]。 |
+| [152. 乘积最大子数组](./dynamicprogramming/15.leetcode_152.py) | 动态规划             | 关键：正负值分类讨论，dp为两列，根据nums[i]的正负进行判断和转移。 |
 |                                                              |                      |                                                              |
 |                                                              |                      |                                                              |
 |                                                              |                      |                                                              |
