@@ -32,6 +32,29 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ==========================================================================
-
+题解：
+    常见动态规划的例题。
+    dp[i]表示以nums[i-1]为结尾的LIS，考虑到递增性，只有当后面的数大于nums[i-1]时，才能和当前的这个LIS
+    递推关系式：
+        - 对于所有j < i，如果nums[j] < nums[i]，说明可以将dp[j]传递到dp[i]上。
+          对能够完成传递的，只需要取出最大值+1即可，即：
+          dp[i] = max {j<i and nums[j] < nums[i]} dp[j]
 
 """
+
+
+# 执行用时：1972 ms, 在所有 Python 提交中击败了66.71% 的用户
+# 内存消耗：13.6 MB, 在所有 Python 提交中击败了6.63% 的用户
+class Solution(object):
+    def lengthOfLIS(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        dp = [1 for _ in range(n)]
+        for i in range(1, n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[j] + 1, dp[i])
+        return max(dp)

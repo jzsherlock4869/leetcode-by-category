@@ -27,6 +27,32 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 ===================================================================================
+题解：
+     构造dp数组，其中dp[i]表示前(i+1)个房屋里能取到的最大值，递推关系可以分类讨论写出：
+     - 如果取了nums[i]，那么不能取nums[i-1]，此时总数最大为 dp[i-2] + nums[i]
+     - 如果没有取nums[i]，那么可以取nums[i-1]，此时总数最大为 dp[i-1]
+     注意！dp[i-1]如果包含了不取nums[i]的情况，那么它就变成了dp[i-2]，肯定比dp[i-2] + nums[i]更小。所以不影响结果。
 
+     初始化：dp[0]，前1个，只能是 dp[0] = nums[0]
+     dp[1]，前两个，dp[1] = max(nums[0], nums[1])
+
+     剩下的项递推即可。
 
 """
+
+# 执行用时：16 ms, 在所有 Python 提交中击败了79.36% 的用户
+# 内存消耗：12.8 MB, 在所有 Python 提交中击败了92.41% 的用户
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        dp = [0 for _ in range(n)]
+        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        for i in range(2, n):
+            dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
+        return dp[n - 1]

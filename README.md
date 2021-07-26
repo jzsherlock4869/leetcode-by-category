@@ -77,8 +77,8 @@
 | [221. 最大正方形](./dynamicprogramming/17.leetcode_221.py)   | 动态规划             | dp(i, j) = min(dp(i-1, j), dp(i, j-1), dp(i-1, j-1))         |
 | [139. 单词拆分](./dynamicprogramming/14.leetcode_139.py)     | 动态规划             | 考虑dp[i]表示末尾为s[i]的单词，向前查找，如果有一个单词s(j...i)符合，那么考察dp[j-1]的True or False，否则dp[i] = False。返回的结果为dp[-1]。 |
 | [152. 乘积最大子数组](./dynamicprogramming/15.leetcode_152.py) | 动态规划             | 关键：正负值分类讨论，dp为两列，根据nums[i]的正负进行判断和转移。 |
-|                                                              |                      |                                                              |
-|                                                              |                      |                                                              |
+| [198. 打家劫舍](./dynamicprogramming/16.leetcode_198.py)     | 动态规划             | 类似铺瓷砖问题，考虑选择第k个（要隔一个从k-2传递）和不选择第k个（从k-1传递） |
+| [300. 最长递增子序列](./dynamicprogramming/16.leetcode_198.py) | 动态规划             | 典型例题。 dp(i) = max dp(j) + 1   where j < i and nums[j] < nums[i] |
 |                                                              |                      |                                                              |
 |                                                              |                      |                                                              |
 
