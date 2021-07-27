@@ -80,11 +80,28 @@
 | [198. 打家劫舍](./dynamicprogramming/16.leetcode_198.py)     | 动态规划             | 类似铺瓷砖问题，考虑选择第k个（要隔一个从k-2传递）和不选择第k个（从k-1传递） |
 | [300. 最长递增子序列](./dynamicprogramming/16.leetcode_198.py) | 动态规划             | 典型例题。 dp(i) = max dp(j) + 1   where j < i and nums[j] < nums[i] |
 |                                                              |                      |                                                              |
-|                                                              |                      |                                                              |
+
+#### 排序算法（Sorting）
+
+| 题目                                                         | 解法        | 关键点                                             |
+| ------------------------------------------------------------ | ----------- | -------------------------------------------------- |
+| [Template](./linkedlist/python_version/0.template.py)        | 排序        | 模板                                               |
+| [148. 排序链表](./linkedlist/python_version/1.leetcode_148.py) | 归并排序    | 链表排序适合归并，递归函数sort与链表的merge        |
+| [56. 合并区间](./linkedlist/python_version/2.leetcode_56.py) | tuple的排序 | tuple按第一元素排序，通过左右端点判断是否重叠      |
+| [179. 最大数](./linkedlist/python_version/3.leetcode_179.py) | 特殊排序    | 序为 ：若 x + y > y + x（str类型），那么x在y前面。 |
+|                                                              |             |                                                    |
+|                                                              |             |                                                    |
+|                                                              |             |                                                    |
+|                                                              |             |                                                    |
+|                                                              |             |                                                    |
 
 
 
-###  链表（Linked List）
+
+
+
+
+#### 链表（Linked List）
 
 
 
