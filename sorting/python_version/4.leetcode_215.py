@@ -34,7 +34,9 @@ class Solution(object):
 
     def partition(self, nums, l, r):
         # 传数组引用，实际作用于 nums[l...r] 闭区间
-        
+        pivot = nums[l]
+        while(l < r):
+            while(l < r and nums[])
 
 
     def findKthLargest(self, nums, k):
