@@ -36,15 +36,34 @@ class Solution(object):
         # 传数组引用，实际作用于 nums[l...r] 闭区间
         pivot = nums[l]
         while(l < r):
-            while(l < r and nums[])
+            while(l < r and nums[r] >= pivot):
+                r -= 1
+            # 注意，此时已经将pivot所在的位置填上了，r当前指向的元素可以视为一个空缺，暂时不需要交换
+            nums[l] = nums[r]
+            while(l < r and nums[l] <= pivot):
+                l += 1
+            # 此时相当于才完成了一次交换。
+            nums[r] = nums[l]
+        nums[l] = pivot
+        return l
 
-
+    # 类快排的操作（partition加二分）
     def findKthLargest(self, nums, k):
         """
         :type nums: List[int]
         :type k: int
         :rtype: int
         """
+        def get_topk(nums, l, r):
+            if l < r:
+                idx = self.partition(nums, l, r)
+                if idx == k:
+                    return nums[k]
+                else:
+                    if idx > k:
+                        self.partition(l, idx + 1)
+                    
+
 
 
 
