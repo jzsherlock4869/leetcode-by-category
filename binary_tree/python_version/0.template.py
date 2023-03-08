@@ -11,26 +11,26 @@ class TreeNode:
 # 前序、中序、后序遍历（递归方法）：
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        
-        def helper(node, cur_list):
-            if node is None:
-                return cur_list
-            left_list = helper(node.left, cur_list)
-            right_list = helper(node.right, cur_list)
-            # return [node.val] + left_list + right_list
-            return left_list + [node.val] + right_list
-            # return left_list + right_list + [node.val]
-
-        traverse_list = list()
-        traverse_list = helper(root, traverse_list)
-
-        return traverse_list
-
+        if root is None:
+            return []
+        return inorderTraversal(self, root.left) + [root.val] + inorderTraversal(self, root.right)
 
 
 # 前序、中序、后序遍历（迭代方法）：
-
-
+class Solution:
+    def inorderTraversal(self, root):
+        cur = root
+        stack = []
+        traverse_out = []
+        while cur or stack:
+            if cur is not None:
+                stack.append(cur)
+                cur = cur.left
+            else:
+                node = stack.pop()
+                traverse_out.append(node.val)
+                cur = node.right
+        return traverse_out
 
 
 # 层序遍历（不需要分层返回）模板：
